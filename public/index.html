@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGHSS - Gestão Hospitalar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilo para animação do modal */
+        .modal-enter {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        .modal-enter-active {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 300ms, transform 300ms;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div id="app" class="container mx-auto p-4 md:p-8">
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl font-bold text-gray-800">SGHSS - VidaPlus</h1>
+            <p class="text-gray-600 mt-2">Plataforma de Gestão de Pacientes e Consultas</p>
+        </header>
+        <main class="flex justify-center">
+            <!-- Seção de Gestão de Consultas -->
+            <section id="appointment-management" class="bg-white p-6 rounded-lg shadow-md w-full max-w-2xl">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-4 border-b pb-2 flex items-center"><i class="fas fa-calendar-alt mr-3 text-green-500"></i>Gestão de Consultas</h2>
+                <form id="form-add-appointment" class="space-y-4">
+                    <!-- O seletor de paciente foi removido, pois o paciente é o usuário logado -->
+                    <div class="hidden">
+                        <label for="appointment-patient" class="block text-sm font-medium text-gray-600">Paciente</label>
+                        <select id="appointment-patient" name="patientId" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500">
+                            <option value="">Selecione um paciente...</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="appointment-professional" class="block text-sm font-medium text-gray-600">Profissional de Saúde</label>
+                        <select id="appointment-professional" name="professionalId" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500"></select>
+                    </div>
+                    <div>
+                        <label for="appointment-date" class="block text-sm font-medium text-gray-600">Data e Hora</label>
+                        <input type="datetime-local" id="appointment-date" name="date" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <button type="submit" class="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-200"><i class="fas fa-calendar-check mr-2"></i>Agendar Consulta</button>
+                </form>
+                 <div class="mt-6">
+                    <h3 class="text-lg font-semibold text-gray-700">Consultas Agendadas</h3>
+                    <ul id="appointment-list" class="mt-2 space-y-2 max-h-60 overflow-y-auto"></ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    <!-- Modal para mensagens -->
+    <div id="feedback-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden modal-enter">
+         <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-sm text-center">
+            <div id="modal-icon" class="mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center"></div>
+            <p id="modal-message" class="text-lg text-gray-700"></p>
+            <button id="modal-close-btn" class="mt-6 bg-gray-300 text-gray-800 py-2 px-6 rounded-md hover:bg-gray-400 transition duration-200">Fechar</button>
+        </div>
+    </div>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    
+    <!-- Project Scripts -->
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

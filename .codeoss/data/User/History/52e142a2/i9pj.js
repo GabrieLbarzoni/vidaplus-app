@@ -1,0 +1,208 @@
+// IMPORTANTE: Deixe esta linha exatamente assim por enquanto!
+const API_URL = 'https://api-jdouvmbkja-uc.a.run.app/';
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const auth = firebase.auth();
+    let idToken = null;
+
+    // Função wrapper para fetch com autenticação
+    const fetchWithAuth = async (url, options = {}) => {
+        if (!idToken) {
+            throw new Error("Usuário não autenticado.");
+        }
+        const headers = {
+            ...options.headers,
+            'Authorization': `Bearer ${idToken}`,
+            'Content-Type': 'application/json',
+        };
+        return fetch(url, { ...options, headers });
+    };
+
+    // Lógica de Autenticação e Roteamento
+    auth.onAuthStateChanged(async (user) => {
+        if (user) {
+            try {
+                idToken = await user.getIdToken();
+                
+                // Verifica se o usuário já completou o perfil
+                const response = await fetchWithAuth(`${API_URL}/user/status`);
+                if (!response.ok) {
+                    // Se a verificação falhar, desloga para segurança
+                    await auth.signOut();
+                    return;
+                }
+
+                const status = await response.json();
+                if (!status.hasProfile) {
+                    // Se não tem perfil, redireciona para a página de criação de perfil
+                    window.location.href = '/profile.html';
+                } else {
+                    // Se tem perfil, inicializa o app principal
+                    initializeApp(fetchWithAuth);
+                }
+            } catch (error) {
+                console.error("Erro de autenticação ou verificação de perfil:", error);
+                await auth.signOut(); // Força o logout em caso de erro
+            }
+        } else {
+            // Se não há usuário, redireciona para a página de login
+            window.location.href = '/login.html';
+        }
+    });
+
+    // Seletores do DOM
+    const formAddPatient = document.getElementById('form-add-patient');
+    const patientList = document.getElementById('patient-list');
+    const formAddAppointment = document.getElementById('form-add-appointment');
+    const appointmentList = document.getElementById('appointment-list');
+    const patientSelect = document.getElementById('appointment-patient');
+    const professionalSelect = document.getElementById('appointment-professional');
+    const modal = document.getElementById('feedback-modal');
+    const modalMessage = document.getElementById('modal-message');
+    const modalIcon = document.getElementById('modal-icon');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+
+    // Funções de Renderização (agora recebem a função de fetch)
+    const renderPatients = async (fetcher) => {
+        try {
+            const response = await fetcher(`${API_URL}/patients`);
+            const patients = await response.json();
+            patientList.innerHTML = '';
+            if (patients.length === 0) {
+                patientList.innerHTML = `<li class="text-gray-500 text-sm">Nenhum paciente cadastrado.</li>`;
+            } else {
+                patients.forEach(patient => {
+                    const li = document.createElement('li');
+                    li.className = 'p-2 bg-gray-50 rounded border flex justify-between items-center';
+                    li.innerHTML = `<span>${patient.name}</span> <span class="text-xs text-gray-500">${patient.cpf}</span>`;
+                    patientList.appendChild(li);
+                });
+            }
+            populatePatientSelect(patients);
+        } catch (error) {
+            showModal('Erro ao carregar pacientes.', true);
+            console.error(error);
+        }
+    };
+
+    const renderAppointments = async (fetcher) => {
+        try {
+            const response = await fetcher(`${API_URL}/appointments`);
+            const appointments = await response.json();
+            appointmentList.innerHTML = '';
+            if (appointments.length === 0) {
+                appointmentList.innerHTML = `<li class="text-gray-500 text-sm">Nenhuma consulta agendada.</li>`;
+            } else {
+                // A ordenação já é feita no backend, mas podemos garantir aqui também.
+                // appointments.sort((a, b) => new Date(a.date) - new Date(b.date));
+                appointments.forEach(app => {
+                    const li = document.createElement('li');
+                    li.className = 'p-2 bg-gray-50 rounded border';
+                    const formattedDate = new Date(app.date).toLocaleString('pt-BR');
+                    li.innerHTML = `
+                        <div class="font-semibold">${app.patientName}</div>
+                        <div class="text-sm text-gray-600">Com: ${app.professionalName}</div>
+                        <div class="text-xs text-gray-500 mt-1">${formattedDate}</div>
+                    `;
+                    appointmentList.appendChild(li);
+                });
+            }
+        } catch (error) {
+            showModal('Erro ao carregar consultas.', true);
+            console.error(error);
+        }
+    };
+
+    const populatePatientSelect = (patients) => {
+        patientSelect.innerHTML = '<option value="">Selecione um paciente...</option>';
+        patients.forEach(patient => {
+            const option = document.createElement('option');
+            option.value = patient.id;
+            option.textContent = patient.name;
+            patientSelect.appendChild(option);
+        });
+    };
+
+    const populateProfessionalSelect = async (fetcher) => {
+        try {
+            const response = await fetcher(`${API_URL}/professionals`);
+            const professionals = await response.json();
+            professionalSelect.innerHTML = '<option value="">Selecione um profissional...</option>';
+            professionals.forEach(prof => {
+                const option = document.createElement('option');
+                option.value = prof.id;
+                option.textContent = `${prof.name} (${prof.specialty})`;
+                professionalSelect.appendChild(option);
+            });
+        } catch (error) {
+            showModal('Erro ao carregar profissionais.', true);
+        }
+    };
+
+    const showModal = (message, isError = false) => {
+        modalMessage.textContent = message;
+        modal.classList.remove('hidden', 'modal-enter-active');
+        if (isError) {
+            modalIcon.innerHTML = `<i class="fas fa-times-circle text-5xl text-red-500"></i>`;
+        } else {
+            modalIcon.innerHTML = `<i class="fas fa-check-circle text-5xl text-green-500"></i>`;
+        }
+        void modal.offsetWidth; // Força o reflow
+        modal.classList.add('modal-enter-active');
+    };
+    const hideModal = () => modal.classList.add('hidden');
+
+    // A inicialização agora é chamada apenas se o usuário estiver logado e com perfil
+    const initializeApp = (fetcher) => {
+        // O formulário de adicionar paciente não faz mais sentido aqui,
+        // pois o cadastro é feito na tela de perfil.
+        // Vamos esconder ou desabilitar este formulário.
+        formAddPatient.parentElement.style.display = 'none';
+
+        // Carrega os dados iniciais
+        renderPatients(fetcher);
+        populateProfessionalSelect(fetcher);
+        renderAppointments(fetcher);
+
+        // Event listener para agendar consulta
+        formAddAppointment.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(formAddAppointment);
+            const appointmentData = Object.fromEntries(formData.entries());
+            try {
+                const response = await fetcher(`${API_URL}/appointments`, {
+                    method: 'POST',
+                    body: JSON.stringify(appointmentData)
+                });
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.message || "Erro ao agendar consulta.");
+                showModal('Consulta agendada com sucesso!');
+                formAddAppointment.reset();
+                renderAppointments(fetcher);
+            } catch (error) {
+                showModal(error.message, true);
+            }
+        });
+
+        // O formulário de adicionar paciente foi removido da lógica principal.
+        // Se for necessário manter uma função de "adicionar novo paciente" por um admin,
+        // a lógica precisaria ser ajustada. Por ora, vamos remover o listener.
+        /*
+        formAddPatient.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            // ... lógica para admin adicionar paciente ...
+        });
+        */
+
+        modalCloseBtn.addEventListener('click', hideModal);
+
+        // Adiciona um botão de logout na interface principal
+        const header = document.querySelector('header');
+        const logoutButton = document.createElement('button');
+        logoutButton.textContent = 'Sair';
+        logoutButton.className = 'absolute top-4 right-4 bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600';
+        logoutButton.onclick = () => auth.signOut();
+        header.style.position = 'relative';
+        header.appendChild(logoutButton);
+    };
+});

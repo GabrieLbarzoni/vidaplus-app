@@ -1,0 +1,1 @@
+[Error - 6:25:40 PM] Failed to load entities from /home/gabrielblucas/functions/node_modules/@napi-rs/wasm-runtime/package.json: Error: ENOENT: no such file or directory, open '/home/gabrielblucas/functions/node_modules/@napi-rs/wasm-runtime/package.json'

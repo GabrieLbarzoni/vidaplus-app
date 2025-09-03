@@ -1,0 +1,20 @@
+2025-09-02 18:06:44.922 [info] 
+
+
+
+
+2025-09-02 18:06:44.939 [info] Extension host agent started.
+2025-09-02 18:06:44.955 [info] Started initializing default profile extensions in extensions installation folder. file:///home/gabrielblucas/.codeoss/extensions
+2025-09-02 18:06:44.959 [info] ComputeTargetPlatform: linux-x64
+2025-09-02 18:06:44.969 [info] Completed initializing default profile extensions in extensions installation folder. file:///home/gabrielblucas/.codeoss/extensions
+2025-09-02 18:06:49.117 [info] [127.0.0.1][a03a7521][ManagementConnection] New connection established.
+2025-09-02 18:06:49.394 [info] [127.0.0.1][129db0ae][ExtensionHostConnection] New connection established.
+2025-09-02 18:06:51.211 [info] [127.0.0.1][129db0ae][ExtensionHostConnection] <1661> Launched Extension Host Process.
+2025-09-02 18:12:37.597 [info] [127.0.0.1][a03a7521][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2025-09-02 18:12:37.694 [info] [127.0.0.1][129db0ae][ExtensionHostConnection] <1661> Extension Host Process exited with code: 0, signal: null.
+2025-09-02 18:12:40.127 [info] [127.0.0.1][1e9ba21d][ManagementConnection] New connection established.
+2025-09-02 18:12:40.420 [info] [127.0.0.1][e370d379][ExtensionHostConnection] New connection established.
+2025-09-02 18:12:40.425 [info] [127.0.0.1][e370d379][ExtensionHostConnection] <1894> Launched Extension Host Process.
+2025-09-02 19:37:39.958 [info] [127.0.0.1][1e9ba21d][ManagementConnection] The client has reconnected.
+2025-09-02 19:37:40.287 [info] [127.0.0.1][e370d379][ExtensionHostConnection] The client has reconnected.
+2025-09-02 19:46:34.900 [info] [127.0.0.1][1e9ba21d][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...

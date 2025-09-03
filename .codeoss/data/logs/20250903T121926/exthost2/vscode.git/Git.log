@@ -1,0 +1,92 @@
+2025-09-03 12:22:04.718 [info] [main] Log level: Info
+2025-09-03 12:22:04.718 [info] [main] Validating found git in: "git"
+2025-09-03 12:22:04.718 [info] [main] Using git "2.43.0" from "git"
+2025-09-03 12:22:04.718 [info] [Model][doInitialScan] Initial repository scan started
+2025-09-03 12:22:04.718 [info] > git rev-parse --show-toplevel [6ms]
+2025-09-03 12:22:04.718 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2025-09-03 12:22:04.718 [info] > git rev-parse --show-toplevel [2ms]
+2025-09-03 12:22:04.718 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2025-09-03 12:22:04.718 [info] > git rev-parse --show-toplevel [2ms]
+2025-09-03 12:22:04.718 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2025-09-03 12:22:04.718 [info] > git rev-parse --show-toplevel [2ms]
+2025-09-03 12:22:04.718 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2025-09-03 12:22:04.718 [info] > git rev-parse --show-toplevel [1ms]
+2025-09-03 12:22:04.718 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2025-09-03 12:22:04.718 [info] > git rev-parse --show-toplevel [2ms]
+2025-09-03 12:22:04.718 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2025-09-03 12:22:04.718 [info] > git rev-parse --show-toplevel [2ms]
+2025-09-03 12:22:04.718 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2025-09-03 12:22:04.718 [info] > git rev-parse --show-toplevel [1ms]
+2025-09-03 12:22:04.718 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2025-09-03 12:22:04.718 [info] > git rev-parse --show-toplevel [2ms]
+2025-09-03 12:22:04.718 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2025-09-03 12:22:04.718 [info] > git rev-parse --show-toplevel [2ms]
+2025-09-03 12:22:04.718 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2025-09-03 12:22:04.718 [info] > git rev-parse --show-toplevel [2ms]
+2025-09-03 12:22:04.718 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2025-09-03 12:22:04.718 [info] [Model][doInitialScan] Initial repository scan completed - repositories (0), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-09-03 12:32:09.749 [info] > git rev-parse --show-toplevel [3ms]
+2025-09-03 12:32:09.749 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2025-09-03 12:32:12.516 [info] > git rev-parse --show-toplevel [2ms]
+2025-09-03 12:32:12.516 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2025-09-03 12:32:27.282 [info] > git rev-parse --show-toplevel [2ms]
+2025-09-03 12:32:27.282 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2025-09-03 12:34:31.018 [info] > git rev-parse --show-toplevel [3ms]
+2025-09-03 12:34:31.030 [info] > git rev-parse --git-dir --git-common-dir [2ms]
+2025-09-03 12:34:31.054 [info] [Model][openRepository] Opened repository (path): /home/gabrielblucas
+2025-09-03 12:34:31.054 [info] [Model][openRepository] Opened repository (real path): /home/gabrielblucas
+2025-09-03 12:34:31.070 [info] [Git][getRemotes] No remotes found in the git config file
+2025-09-03 12:34:31.081 [info] > git config --get commit.template [13ms]
+2025-09-03 12:34:31.084 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-09-03 12:34:31.084 [warning] [Git][getBranch] No such branch: main
+2025-09-03 12:34:31.113 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [5ms]
+2025-09-03 12:34:31.341 [info] > git status -z -uall [245ms] (cancelled)
+2025-09-03 12:34:31.342 [info] > git check-ignore -v -z --stdin [3ms]
+2025-09-03 12:34:33.152 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [1603ms]
+2025-09-03 12:34:33.152 [warning] [Git][getBranch] No such branch: main
+2025-09-03 12:34:33.153 [error] [GitHistoryProvider][resolveHEADMergeBase] Failed to resolve merge base for main: Error: No such branch: main.
+2025-09-03 12:34:33.201 [info] > git check-ignore -v -z --stdin [5ms]
+2025-09-03 12:34:33.205 [info] > git config --get commit.template [67ms]
+2025-09-03 12:34:33.216 [info] [Git][getRemotes] No remotes found in the git config file
+2025-09-03 12:34:33.219 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2025-09-03 12:34:33.219 [warning] [Git][getBranch] No such branch: main
+2025-09-03 12:34:33.255 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [9ms]
+2025-09-03 12:34:33.479 [info] > git status -z -uall [250ms] (cancelled)
+2025-09-03 12:34:33.493 [info] > git check-ignore -v -z --stdin [3ms]
+2025-09-03 12:34:37.416 [info] [Git][getRemotes] No remotes found in the git config file
+2025-09-03 12:34:37.417 [info] > git config --get commit.template [21ms]
+2025-09-03 12:34:37.418 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2025-09-03 12:34:37.418 [warning] [Git][getBranch] No such branch: main
+2025-09-03 12:34:37.435 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [3ms]
+2025-09-03 12:34:37.510 [info] > git status -z -uall [85ms]
+2025-09-03 12:34:38.581 [info] > git check-ignore -v -z --stdin [1ms]
+2025-09-03 12:36:03.763 [info] > git check-ignore -v -z --stdin [2ms]
+2025-09-03 12:40:26.003 [info] > git config --get commit.template [3ms]
+2025-09-03 12:40:26.013 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2025-09-03 12:40:26.013 [warning] [Git][getBranch] No such branch: main
+2025-09-03 12:40:26.032 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [2ms]
+2025-09-03 12:40:26.082 [info] > git status -z -uall [62ms]
+2025-09-03 12:40:28.555 [info] > git show --textconv :.gitignore [25ms]
+2025-09-03 12:40:28.555 [info] > git show --textconv HEAD:.gitignore [18ms]
+2025-09-03 12:40:28.555 [info] > git ls-files --stage -- .gitignore [10ms]
+2025-09-03 12:40:28.571 [info] > git cat-file -s ce454946e53bde1d44bca2cdc2892f4589a6486d [9ms]
+2025-09-03 12:40:28.571 [info] > git ls-tree -l HEAD -- .gitignore [18ms]
+2025-09-03 12:40:28.572 [info] fatal: Not a valid object name HEAD
+2025-09-03 12:40:28.579 [info] > git hash-object -t tree /dev/null [10ms]
+2025-09-03 12:40:28.579 [warning] [GitFileSystemProvider][readFile] File not found - git:/home/gabrielblucas/.gitignore.git?%7B%22path%22%3A%22%2Fhome%2Fgabrielblucas%2F.gitignore%22%2C%22ref%22%3A%22HEAD%22%7D
+2025-09-03 12:40:28.588 [info] > git hash-object -t tree /dev/null [10ms]
+2025-09-03 12:40:28.588 [warning] [GitFileSystemProvider][stat] File not found - git:/home/gabrielblucas/.gitignore.git?%7B%22path%22%3A%22%2Fhome%2Fgabrielblucas%2F.gitignore%22%2C%22ref%22%3A%22HEAD%22%7D
