@@ -1,29 +1,21 @@
 module.exports = {
+  root: true,
   env: {
     es6: true,
     node: true,
   },
   parserOptions: {
-    "ecmaVersion": 2018,
+    ecmaVersion: 2020, // Permite a análise de recursos modernos do ECMAScript
   },
   extends: [
     "eslint:recommended",
     "google",
   ],
   rules: {
-    "no-restricted-globals": ["error", "name", "length"],
-    "prefer-arrow-callback": "error",
-    "quotes": ["error", "double", {"allowTemplateLiterals": true}],
-    "indent": "off",
-    "max-len": "off"},
-  overrides: [
-    {
-      files: ["**/*.spec.*"],
-      env: {
-        mocha: true,
-      },
-      rules: {},
-    },
-  ],
-  globals: {},
+    "quotes": ["error", "double"],
+    "require-jsdoc": "off",
+    "max-len": "off", // Desativa a regra de comprimento máximo da linha
+    "eol-last": "off", // Desativa a regra de nova linha no final do arquivo
+    "new-cap": ["error", {"capIsNewExceptions": ["Router"]}], // Permite express.Router()
+  },
 };

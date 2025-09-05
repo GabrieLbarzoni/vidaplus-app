@@ -1,0 +1,16 @@
+2025-09-03 14:06:18.757 [info] 
+
+
+
+
+2025-09-03 14:06:18.757 [info] Extension host agent started.
+2025-09-03 14:06:21.926 [info] [127.0.0.1][7e27dc5f][ManagementConnection] New connection established.
+2025-09-03 14:06:22.235 [info] [127.0.0.1][30ccaf9a][ExtensionHostConnection] New connection established.
+2025-09-03 14:06:22.296 [info] ComputeTargetPlatform: linux-x64
+2025-09-03 14:06:23.644 [info] [127.0.0.1][30ccaf9a][ExtensionHostConnection] <1246> Launched Extension Host Process.
+2025-09-03 14:10:14.500 [info] [127.0.0.1][7e27dc5f][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2025-09-03 14:10:14.636 [info] [127.0.0.1][30ccaf9a][ExtensionHostConnection] <1246> Extension Host Process exited with code: 0, signal: null.
+2025-09-03 14:10:17.206 [info] [127.0.0.1][3ea19351][ManagementConnection] New connection established.
+2025-09-03 14:10:17.398 [info] [127.0.0.1][869e50da][ExtensionHostConnection] New connection established.
+2025-09-03 14:10:17.405 [info] [127.0.0.1][869e50da][ExtensionHostConnection] <1327> Launched Extension Host Process.
+2025-09-03 15:54:23.364 [info] [127.0.0.1][3ea19351][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...

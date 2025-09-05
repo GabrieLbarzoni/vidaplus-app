@@ -1,0 +1,103 @@
+2025-09-04 16:52:33.013 [info] Extension host with pid 1250 started
+2025-09-04 16:52:33.013 [error] Error: EEXIST: file already exists, open '/home/gabrielblucas/.codeoss/data/User/workspaceStorage/-4c09ef6b/vscode.lock'
+2025-09-04 16:52:33.028 [info] Lock '/home/gabrielblucas/.codeoss/data/User/workspaceStorage/-4c09ef6b/vscode.lock': Could not acquire lock, checking if the file is stale.
+2025-09-04 16:52:33.030 [info] Lock '/home/gabrielblucas/.codeoss/data/User/workspaceStorage/-4c09ef6b/vscode.lock': The pid 2286 appears to be gone.
+2025-09-04 16:52:33.030 [info] Lock '/home/gabrielblucas/.codeoss/data/User/workspaceStorage/-4c09ef6b/vscode.lock': Deleting a stale lock.
+2025-09-04 16:52:33.045 [info] Lock '/home/gabrielblucas/.codeoss/data/User/workspaceStorage/-4c09ef6b/vscode.lock': Lock acquired.
+2025-09-04 16:52:33.227 [info] ExtensionService#_doActivateExtension google.geminicodeassist, startup: false, activationEvent: 'onView:cloudcode.gemini.chatView'
+2025-09-04 16:52:33.229 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-09-04 16:52:33.230 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:javascript'
+2025-09-04 16:52:33.230 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-09-04 16:52:33.231 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-09-04 16:52:35.697 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-09-04 16:52:35.729 [info] ExtensionService#_doActivateExtension vscode.npm, startup: true, activationEvent: 'workspaceContains:package.json'
+2025-09-04 16:52:36.602 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-09-04 16:52:36.602 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-09-04 16:52:37.399 [info] ExtensionService#_doActivateExtension google.cloud-shell, startup: false, activationEvent: 'onCommand:cloudshell.isAuthorized'
+2025-09-04 16:52:41.673 [info] Eager extensions activated
+2025-09-04 16:52:41.673 [info] ExtensionService#_doActivateExtension EditorConfig.EditorConfig, startup: false, activationEvent: 'onStartupFinished'
+2025-09-04 16:52:41.674 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-09-04 16:52:41.674 [info] ExtensionService#_doActivateExtension google.gemini-cli-vscode-ide-companion, startup: false, activationEvent: 'onStartupFinished'
+2025-09-04 16:52:41.675 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-09-04 16:52:44.336 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8556
+2025-09-04 16:52:46.238 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-09-04 16:52:46.667 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:52:50.898 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8555
+2025-09-04 16:52:54.268 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-09-04 16:52:57.849 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8556
+2025-09-04 16:53:03.194 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8556
+2025-09-04 16:53:08.485 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8556
+2025-09-04 16:53:13.788 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8556
+2025-09-04 16:53:19.072 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8556
+2025-09-04 16:53:24.348 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8556
+2025-09-04 16:53:29.655 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8556
+2025-09-04 16:53:31.120 [error] Error: unauthorized.
+	at e.Authorization.authorize (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloud-shell/dist/extension.js:1:6008)
+	at runNextTicks (node:internal/process/task_queues:60:5)
+	at process.processTimers (node:internal/timers:516:9)
+	at async Wb.h (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:119:41516)
+	at async t.CloudShellTheiaAuth.promptForOrGetAuth (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/extension.js:2:14198350)
+	at async t.CloudShellTheiaAuth.runAuthorization (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/extension.js:2:14198014)
+	at async t.CloudShellTheiaAuth.checkAuthorization (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/extension.js:2:14197930)
+	at async t.CloudShellAuthProvider.checkAuthorization (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/extension.js:2:14165836)
+	at async t.setGcloudStateContext (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/extension.js:2:14149787)
+	at async t.globalActivate (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/extension.js:2:14842898)
+	at async t.activate (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/extension.js:2:14840194)
+	at async Nb.n (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:119:13382)
+	at async Nb.m (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:119:13345)
+	at async Nb.l (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:119:12801) cloudshell.authorize {"value":"google.cloud-shell","_lower":"google.cloud-shell"}
+2025-09-04 16:53:31.128 [info] ExtensionService#_doActivateExtension googlecloudtools.cloudcode, startup: false, activationEvent: 'onStartupFinished'
+2025-09-04 16:53:42.468 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:53:47.174 [error] Error: unauthorized.
+    at e.Authorization.authorize (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloud-shell/dist/extension.js:1:6008)
+    at Wb.h (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:119:41516)
+    at t.CloudShellTheiaAuth.promptForOrGetAuth (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloudcode/dist/extension.js:14:9674513)
+    at t.CloudShellTheiaAuth.runAuthorization (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloudcode/dist/extension.js:14:9674177)
+    at t.CloudShellAuthProvider.getAccessToken (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloudcode/dist/extension.js:14:9642896)
+    at t.ExperimentationService.updateExperimentationDataCache (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloudcode/dist/extension.js:14:9706614)
+    at t.ExperimentationService.updateExperimentationData (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloudcode/dist/extension.js:14:9706470)
+    at _e (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloudcode/dist/extension.js:14:10447540)
+    at t.activate (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloudcode/dist/extension.js:14:10445843)
+    at Nb.n (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:119:13382)
+    at Nb.m (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:119:13345)
+    at Nb.l (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:119:12801) cloudshell.authorize {"value":"google.cloud-shell","_lower":"google.cloud-shell"}
+2025-09-04 16:53:47.179 [error] Activating extension googlecloudtools.cloudcode failed due to an error:
+2025-09-04 16:53:47.179 [error] Error: Error calling Cloud Shell Theia Authorization. unauthorized.
+    at t.CloudShellTheiaAuth.runAuthorization (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloudcode/dist/extension.js:14:9674273)
+    at t.CloudShellAuthProvider.getAccessToken (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloudcode/dist/extension.js:14:9642896)
+    at t.ExperimentationService.updateExperimentationDataCache (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloudcode/dist/extension.js:14:9706614)
+    at t.ExperimentationService.updateExperimentationData (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloudcode/dist/extension.js:14:9706470)
+    at _e (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloudcode/dist/extension.js:14:10447540)
+    at t.activate (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloudcode/dist/extension.js:14:10445843)
+    at Nb.n (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:119:13382)
+    at Nb.m (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:119:13345)
+    at Nb.l (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:119:12801)
+2025-09-04 16:53:49.457 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:53:54.733 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:54:00.018 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:54:05.307 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:54:10.610 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:54:15.892 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:54:21.220 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:54:26.514 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:54:31.795 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:54:37.086 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:54:42.392 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:54:47.700 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:54:52.995 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:54:59.071 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:55:04.371 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:55:09.651 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:55:14.951 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:55:20.256 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:55:26.175 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:55:31.455 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:55:36.758 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:55:42.050 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:55:47.334 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:55:52.636 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:55:57.921 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:56:03.218 [warning] [Decorations] CAPPING events from decorations provider vscode.git 8557
+2025-09-04 16:58:00.033 [info] Extension host terminating: received terminate message from renderer
+2025-09-04 16:58:00.034 [info] Lock '/home/gabrielblucas/.codeoss/data/User/workspaceStorage/-4c09ef6b/vscode.lock': Marking the lockfile as scheduled to be released in 6000 ms.
+2025-09-04 16:58:00.159 [info] Extension host with pid 1250 exiting with code 0

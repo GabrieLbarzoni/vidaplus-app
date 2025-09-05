@@ -1,0 +1,58 @@
+2025-09-03 14:10:21.244 [info] Extension host with pid 1327 started
+2025-09-03 14:10:21.258 [error] Error: EEXIST: file already exists, open '/home/gabrielblucas/.codeoss/data/User/workspaceStorage/-4c09ef6b/vscode.lock'
+2025-09-03 14:10:21.262 [info] Lock '/home/gabrielblucas/.codeoss/data/User/workspaceStorage/-4c09ef6b/vscode.lock': Could not acquire lock, checking if the file is stale.
+2025-09-03 14:10:21.269 [info] Lock '/home/gabrielblucas/.codeoss/data/User/workspaceStorage/-4c09ef6b/vscode.lock': The lock does not look stale, elapsed: 457004 ms, giving up.
+2025-09-03 14:10:21.298 [info] Lock '/home/gabrielblucas/.codeoss/data/User/workspaceStorage/-4c09ef6b-1/vscode.lock': Lock acquired.
+2025-09-03 14:10:21.487 [info] ExtensionService#_doActivateExtension google.geminicodeassist, startup: false, activationEvent: 'onView:cloudcode.gemini.chatView'
+2025-09-03 14:10:21.489 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-09-03 14:10:21.489 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: false, activationEvent: 'onLanguage:ignore'
+2025-09-03 14:10:21.489 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-09-03 14:10:21.490 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-09-03 14:10:21.490 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-09-03 14:10:23.611 [info] ExtensionService#_doActivateExtension vscode.npm, startup: true, activationEvent: 'workspaceContains:package.json'
+2025-09-03 14:10:23.810 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-09-03 14:10:23.810 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-09-03 14:10:24.144 [info] ExtensionService#_doActivateExtension google.cloud-shell, startup: false, activationEvent: 'onCommand:cloudshell.isAuthorized'
+2025-09-03 14:10:24.434 [info] Eager extensions activated
+2025-09-03 14:10:24.435 [info] ExtensionService#_doActivateExtension EditorConfig.EditorConfig, startup: false, activationEvent: 'onStartupFinished'
+2025-09-03 14:10:24.435 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-09-03 14:10:24.436 [info] ExtensionService#_doActivateExtension google.gemini-cli-vscode-ide-companion, startup: false, activationEvent: 'onStartupFinished'
+2025-09-03 14:10:24.436 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-09-03 14:10:25.171 [info] ExtensionService#_doActivateExtension googlecloudtools.cloudcode, startup: false, activationEvent: 'onStartupFinished'
+2025-09-03 14:10:31.086 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7892
+2025-09-03 14:10:32.962 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-09-03 14:10:32.963 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-09-03 14:10:33.658 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7892
+2025-09-03 14:10:39.259 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7893
+2025-09-03 14:13:46.192 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7899
+2025-09-03 14:13:51.589 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7908
+2025-09-03 14:18:06.121 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7920
+2025-09-03 14:18:11.438 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7920
+2025-09-03 14:20:08.388 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7922
+2025-09-03 14:20:13.713 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7922
+2025-09-03 14:24:05.765 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7927
+2025-09-03 14:24:11.133 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7928
+2025-09-03 14:29:58.916 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7935
+2025-09-03 14:30:04.331 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7934
+2025-09-03 14:31:33.732 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7936
+2025-09-03 14:31:39.048 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7936
+2025-09-03 14:40:32.010 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7944
+2025-09-03 14:40:37.326 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7945
+2025-09-03 14:50:06.455 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7955
+2025-09-03 14:50:11.753 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7952
+2025-09-03 14:57:47.562 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7954
+2025-09-03 14:57:53.127 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7951
+2025-09-03 15:00:00.537 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7953
+2025-09-03 15:00:05.960 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7953
+2025-09-03 15:01:09.769 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7953
+2025-09-03 15:01:15.132 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7953
+2025-09-03 15:06:32.777 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7957
+2025-09-03 15:06:38.232 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7957
+2025-09-03 15:14:38.261 [info] ExtensionService#_doActivateExtension vscode.html-language-features, startup: false, activationEvent: 'onLanguage:html'
+2025-09-03 15:14:40.842 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7965
+2025-09-03 15:14:46.242 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7966
+2025-09-03 15:21:37.455 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7971
+2025-09-03 15:21:42.810 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7970
+2025-09-03 15:35:02.651 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7971
+2025-09-03 15:35:07.993 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7971
+2025-09-03 15:38:35.334 [warning] [Decorations] CAPPING events from decorations provider vscode.git 7973

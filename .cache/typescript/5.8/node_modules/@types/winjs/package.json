@@ -1,0 +1,39 @@
+{
+    "name": "@types/winjs",
+    "version": "4.4.7",
+    "description": "TypeScript definitions for winjs",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/winjs",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "TypeScript samples",
+            "url": "https://www.typescriptlang.org/"
+        },
+        {
+            "name": "Adam Hewitt",
+            "githubUsername": "adamhewitt627",
+            "url": "https://github.com/adamhewitt627"
+        },
+        {
+            "name": "Craig Treasure",
+            "githubUsername": "craigktreasure",
+            "url": "https://github.com/craigktreasure"
+        },
+        {
+            "name": "Jeff Fisher",
+            "githubUsername": "xirzec",
+            "url": "https://github.com/xirzec"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/winjs"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "typesPublisherContentHash": "37d669349065837fd74da3eb8ff614a3bb7d9d8be5257100687eb3135c8f5f65",
+    "typeScriptVersion": "4.7"
+}

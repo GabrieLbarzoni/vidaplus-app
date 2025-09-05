@@ -1,0 +1,19 @@
+2025-09-03 17:50:45.121 [info] 
+
+
+
+
+2025-09-03 17:50:45.139 [info] Extension host agent started.
+2025-09-03 17:50:59.598 [info] [127.0.0.1][eba463a9][ManagementConnection] New connection established.
+2025-09-03 17:50:59.847 [info] [127.0.0.1][2c37c1fa][ExtensionHostConnection] New connection established.
+2025-09-03 17:51:00.225 [info] ComputeTargetPlatform: linux-x64
+2025-09-03 17:51:00.734 [info] [127.0.0.1][2c37c1fa][ExtensionHostConnection] <1258> Launched Extension Host Process.
+2025-09-03 18:39:10.780 [info] [127.0.0.1][eba463a9][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2025-09-03 18:39:10.997 [info] [127.0.0.1][2c37c1fa][ExtensionHostConnection] <1258> Extension Host Process exited with code: 0, signal: null.
+2025-09-03 18:39:33.766 [info] [127.0.0.1][ce2a283a][ManagementConnection] New connection established.
+2025-09-03 18:39:34.034 [info] [127.0.0.1][f091503a][ExtensionHostConnection] New connection established.
+2025-09-03 18:39:34.040 [info] [127.0.0.1][f091503a][ExtensionHostConnection] <2211> Launched Extension Host Process.
+2025-09-03 19:34:19.388 [info] [127.0.0.1][ce2a283a][ManagementConnection] The client has reconnected.
+2025-09-03 20:41:53.395 [info] [127.0.0.1][f091503a][ExtensionHostConnection] The client has reconnected.
+2025-09-03 20:54:17.761 [warning] [File Watcher (node.js)] Watcher shutdown because watched path got deleted
+2025-09-03 21:37:04.377 [info] [127.0.0.1][ce2a283a][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
