@@ -49,7 +49,7 @@ module.exports = (db, authenticate) => {
     }
   });
 
-  // Rota para buscar todas as consultas
+  // Rota para buscar todas as consultas (MODIFICADA PARA AUDITORIA)
   router.get("/", authenticate, async (req, res) => {
     try {
       let query = db.collection("appointments");
@@ -66,28 +66,43 @@ module.exports = (db, authenticate) => {
       const appointmentsSnapshot = await query.get();
       const appointmentsData = appointmentsSnapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}));
 
-      if (appointmentsData.length === 0) return res.status(200).json([]);
+      if (appointmentsData.length === 0) {
+        return res.status(200).json([]);
+      }
 
       const patientIds = [...new Set(appointmentsData.map((app) => app.patientId))];
       const professionalIds = [...new Set(appointmentsData.map((app) => app.professionalId))];
 
-      const patientsSnapshot = patientIds.length ? await db.collection("patients").where(admin.firestore.FieldPath.documentId(), "in", patientIds).get() : {docs: []};
-      const patientsMap = new Map();
-      patientsSnapshot.forEach((doc) => patientsMap.set(doc.id, doc.data()));
+      const [patientsSnapshot, professionalsSnapshot] = await Promise.all([
+        patientIds.length ? db.collection("patients").where(admin.firestore.FieldPath.documentId(), "in", patientIds).get() : Promise.resolve({docs: []}),
+        professionalIds.length ? db.collection("professionals").where(admin.firestore.FieldPath.documentId(), "in", professionalIds).get() : Promise.resolve({docs: []}),
+      ]);
 
-      const professionalsSnapshot = professionalIds.length ? await db.collection("professionals").where(admin.firestore.FieldPath.documentId(), "in", professionalIds).get() : {docs: []};
-      const professionalsMap = new Map();
-      professionalsSnapshot.forEach((doc) => professionalsMap.set(doc.id, doc.data()));
+      const patientsMap = new Map(patientsSnapshot.docs.map((doc) => [doc.id, doc.data()]));
+      const professionalsMap = new Map(professionalsSnapshot.docs.map((doc) => [doc.id, doc.data()]));
 
-      const populatedAppointments = appointmentsData.map((app) => ({
-        ...app,
-        patientName: patientsMap.get(app.patientId)?.name || "Paciente não encontrado",
-        professionalName: professionalsMap.get(app.professionalId)?.name || "Profissional não encontrado",
-        medicalRecord: app.medicalRecord || null,
-      }));
+      const populatedAppointments = appointmentsData.map((app) => {
+        const patient = patientsMap.get(app.patientId);
+        const professional = professionalsMap.get(app.professionalId);
+
+        const populatedApp = {
+          ...app,
+          patientName: patient ? patient.name : "Paciente não encontrado",
+          professionalName: professional ? professional.name : "Profissional não encontrado",
+          professionalSpecialty: professional ? professional.specialty : "N/A",
+        };
+
+        // Para a visão do paciente, removemos o conteúdo do prontuário por segurança,
+        // enviando apenas um indicador de que ele existe.
+        if (userProfile.role === "patient") {
+          populatedApp.hasMedicalRecord = !!populatedApp.medicalRecord;
+          delete populatedApp.medicalRecord;
+        }
+
+        return populatedApp;
+      });
 
       populatedAppointments.sort((a, b) => new Date(a.date) - new Date(b.date));
-
       res.status(200).json(populatedAppointments);
     } catch (error) {
       console.error("Erro ao buscar consultas:", error);
@@ -119,7 +134,7 @@ module.exports = (db, authenticate) => {
     }
   });
 
-  // Rota para adicionar/atualizar um prontuário em uma consulta
+  // Rota para adicionar/atualizar um prontuário (MODIFICADA COM AUDITORIA)
   router.post("/:id/record", authenticate, async (req, res) => {
     try {
       const {id} = req.params;
@@ -127,12 +142,11 @@ module.exports = (db, authenticate) => {
       const userProfile = req.user.profile;
 
       if (!userProfile || userProfile.role !== "professional") {
-        return res.status(403).json({message: "Apenas profissionais de saúde podem adicionar prontuários."});
+        return res.status(403).json({message: "Apenas profissionais podem adicionar prontuários."});
       }
 
       const appointmentRef = db.collection("appointments").doc(id);
       const doc = await appointmentRef.get();
-
       if (!doc.exists) {
         return res.status(404).json({message: "Consulta não encontrada."});
       }
@@ -147,10 +161,58 @@ module.exports = (db, authenticate) => {
         recordUpdatedAt: admin.firestore.FieldValue.serverTimestamp(),
       });
 
+      // LOG DE AUDITORIA (ESCRITA)
+      const auditLog = {
+        action: "WRITE",
+        professionalId: userProfile.profileId,
+        patientId: appointmentData.patientId,
+        appointmentId: id,
+        timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      };
+      await db.collection("audit_logs").add(auditLog);
+
       res.status(200).json({message: "Prontuário salvo com sucesso."});
     } catch (error) {
       console.error("Erro ao salvar prontuário:", error);
       res.status(500).json({message: "Erro interno ao salvar o prontuário."});
+    }
+  });
+
+  // Rota para buscar um prontuário (NOVA ROTA COM AUDITORIA)
+  router.get("/:id/record", authenticate, async (req, res) => {
+    try {
+      const {id} = req.params;
+      const userProfile = req.user.profile;
+
+      if (!userProfile || userProfile.role !== "professional") {
+        return res.status(403).json({message: "Apenas profissionais podem visualizar prontuários."});
+      }
+
+      const appointmentRef = db.collection("appointments").doc(id);
+      const doc = await appointmentRef.get();
+      if (!doc.exists) {
+        return res.status(404).json({message: "Consulta não encontrada."});
+      }
+
+      const appointmentData = doc.data();
+      if (appointmentData.professionalId !== userProfile.profileId) {
+        return res.status(403).json({message: "Você não tem permissão para visualizar este prontuário."});
+      }
+
+      // LOG DE AUDITORIA (LEITURA)
+      const auditLog = {
+        action: "READ",
+        professionalId: userProfile.profileId,
+        patientId: appointmentData.patientId,
+        appointmentId: id,
+        timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      };
+      await db.collection("audit_logs").add(auditLog);
+
+      res.status(200).json({medicalRecord: appointmentData.medicalRecord || ""});
+    } catch (error) {
+      console.error("Erro ao buscar prontuário:", error);
+      res.status(500).json({message: "Erro interno ao buscar prontuário."});
     }
   });
 

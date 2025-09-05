@@ -1,0 +1,8 @@
+# Configurações sensíveis do Firebase
+public/firebase-config.js
+
+# Dependências do Node.js (para as Cloud Functions)
+functions/node_modules
+
+# Arquivos de cache do ambiente de desenvolvimento (ex: Cloud Shell)
+.cache/

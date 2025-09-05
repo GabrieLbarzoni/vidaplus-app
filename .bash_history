@@ -124,3 +124,18 @@ firebase deploy
 firebase deploy --only functions
 git rm --cached public/firebase-config.js
 git status
+git add .
+git status
+git commit -m "feat: Adiciona UI modular e corrige atualização de profissional"
+git push origin main
+git rm -r --cached .cache
+git commit -m "chore: Remove pasta .cache do rastreamento do Git"
+git push origin main
+firebase deploy --only functions
+firebase deploy
+firebase deploy --only functions
+firebase deploy
+firebase deploy --only functions
+firebase deploy
+firebase deploy --only functions
+firebase deploy
